@@ -1,0 +1,13 @@
+en:
+  search:
+    success:
+      files_found: " Files with '%{query}': \n"
+    errors:
+      not_found: "There isn't files with the term '%{query}'"
+      invalid_path: "The provided file or directory doesn't exist, check whether it's correctly written."
+  delete:
+    success:
+      deleted_file: "%{file} deleted succesfully."
+    errors:
+      delete_failed: "%{file} couldn't be deleted."
+      no_file: "There isn't files with that term."

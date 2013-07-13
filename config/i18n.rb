@@ -1,0 +1,1 @@
+I18n.load_path = ["./locales/en.yml"]
