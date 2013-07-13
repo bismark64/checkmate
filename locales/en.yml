@@ -11,3 +11,4 @@ en:
     errors:
       delete_failed: "%{file} couldn't be deleted."
       no_file: "There isn't files with that term."
+      permission_denied: "Checkmate has not permissions to delete this file"
