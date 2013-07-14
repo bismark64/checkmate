@@ -1,7 +1,9 @@
 require 'find'
 require 'i18n'
 require './lib/colorize'
+require './lib/progressbar'
 include Checkmate::Colorize
+include Checkmate::Progressbar
 
 module Checkmate
   class Search
@@ -25,13 +27,17 @@ module Checkmate
     private
 
     def find_files(query)
+      pb = new_progressbar
       results = []
       Find.find(@root_path) do |path|
         unless FileTest.directory?(path)
           file = File.basename(path)
           results << path if file.include?(query)
+          pb.progress += estimated_progress_rate(@root_path)
+          pb.refresh
         end
       end
+      pb.finish
       results
     end
 
@@ -44,6 +50,7 @@ module Checkmate
           message << green(I18n.t("search.success.files_found", query: query))
           message << found_files.join("\n")
         end
+        system("clear")
         puts message
       end
     end

@@ -1,4 +1,3 @@
-# loader script
 require "./loader"
 
 def search(root_path, query)

@@ -5,6 +5,7 @@ include Checkmate::Colorize
 module Checkmate
   def self.delete(files)
     unless files.nil?
+      system("clear")
       unless files.empty?
         files.each do |file|
           delete_file(file)
@@ -17,7 +18,7 @@ module Checkmate
 
   private
 
-  def self.delete_file
+  def self.delete_file(file)
     begin
       File.delete(file) 
       print_message green(I18n.t("delete.success.deleted_file", file: file))
